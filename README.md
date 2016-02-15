@@ -12,15 +12,51 @@ It is called Z-cookies, and here is how it works :
 
 _This is a module design pattern. When added to your application, nothing more than calling its methodes is required_
 
-### Get A Cookie
+### Get
 
 #### Get a specific cookie
 
+```
+var myCookie = ZCookies.get("numberOne"); // myCookie = "foo"
+
+```
+
 #### Get all the cookies as an object
 
-### Set A Cookie
+```
+var myCookies = ZCookies.get(); // myCookies = {"numberOne": "foo", "numberTwo" : "bar"}
 
-### Delete a Cookie
+```
+
+### Set / Update
+
+Here if the cookie already exists, it will be updated, otherwise it is created.
+
+```
+ZCookies.set("numberThree", "Hello, World!");
+
+```
+
+#### Expiration date
+
+Instead of providing some ununderstandable timestamps, we chose an easyer solution : providing a number of days of validity.
+
+It will be automatically conerted so that the browser understands well what you meant.
+
+For example for a cookie that is meant to exist only for three days :
+
+
+```
+ZCookies.set("numberFour", "Where is bryan?", 3);
+
+```
+
+### Delete
+
+```
+ZCookies.delete("numberthree"); // now numberthree cookie does not exist anymore.
+
+```
 
 ## Todo
 
@@ -40,4 +76,4 @@ You can contribute, fork, pull request, issue, etc... without problem.
 
 ## License
 
-(http://benavern.github.io/MIT/#name=Benjamin%20%26%20Jean-Sebastien)[MIT]
+[MIT](http://benavern.github.io/MIT/#name=Benjamin%20%26%20Jean-Sebastien)
