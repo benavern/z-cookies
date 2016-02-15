@@ -16,14 +16,14 @@ _This is a module design pattern. When added to your application, nothing more t
 
 #### Get a specific cookie
 
-```
+```javascript
 var myCookie = ZCookies.get("numberOne"); // myCookie = "foo"
 
 ```
 
 #### Get all the cookies as an object
 
-```
+```javascript
 var myCookies = ZCookies.get(); // myCookies = {"numberOne": "foo", "numberTwo" : "bar"}
 
 ```
@@ -32,7 +32,7 @@ var myCookies = ZCookies.get(); // myCookies = {"numberOne": "foo", "numberTwo" 
 
 Here if the cookie already exists, it will be updated, otherwise it is created.
 
-```
+```javascript
 ZCookies.set("numberThree", "Hello, World!");
 
 ```
@@ -46,15 +46,24 @@ It will be automatically conerted so that the browser understands well what you 
 For example for a cookie that is meant to exist only for three days :
 
 
-```
+```javascript
 ZCookies.set("numberFour", "Where is bryan?", 3);
 
 ```
 
 ### Delete
 
+```javascript
+ZCookies.delete("numberThree"); // now numberThree cookie does not exist anymore.
+
 ```
-ZCookies.delete("numberthree"); // now numberthree cookie does not exist anymore.
+
+### BONUS
+
+You can chain ZCookies `set` and `delete` methodes, `get` will always return a `value`.
+
+```javascript
+ZCookies.set("Chaining", "Is").set("A", "realy").set("Awesome", "Feature").delete("A").get(); // {"Chaining": "Is", "Awesome": "Feature"}
 
 ```
 
