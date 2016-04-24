@@ -1,6 +1,6 @@
 /**
  * Module to easily set / get / delete / check cookies.
- * by Benjamin Caradeuc {http://caradeuc.info}
+ * by Benjamin Caradeuc http://caradeuc.info
  * &  Jean sebastien pelerin
  */
 var ZCookies  = (function(){
@@ -27,7 +27,7 @@ var ZCookies  = (function(){
 
 		},
 
-	}
+	};
 
 
 	// public methods
@@ -65,11 +65,11 @@ var ZCookies  = (function(){
 			if(cname && cval)
 				theCookie += cname + "=" + cval + ";";
 
-			//if needed, add a expiration date
+			//if needed, add a expiration date (based on the number of days passed in the function)
 			if(exdays != undefined) {
 				var d = new Date();
-		    d.setTime(d.getTime() + (exdays*24*60*60*1000));
-		    theCookie += "expires="+d.toUTCString();
+		    d.setTime( d.getTime() + (exdays * 24 * 60 * 60 * 1000) );
+		    theCookie += "expires=" + d.toUTCString();
 			}
 
 			// create the cookie
@@ -78,15 +78,15 @@ var ZCookies  = (function(){
 
 		},
 
-		// delete
-		delete(cname) {
+		// delete a specific cookie based on its name
+		delete : function(cname) {
 
-			if(cname != undefined) pub.set(cname, "expired", 0);
+			if(cname != undefined) pub.set(cname, "expired", 0); // 0 is considered in the past once setted
 			return pub; // for method chaining
 
-		}
+		},
 
-	}
+	};
 
 
 	// expose public stuff

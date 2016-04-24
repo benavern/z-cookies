@@ -1,0 +1,114 @@
+*, *:before, *:after{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html{
+  font-size: 18px;
+}
+
+body{
+  font-family: sans-serif;
+  background: #eee;
+  color: #555;
+  line-height: 1.6;
+}
+
+header{
+  text-align: center;
+  padding: 8rem 0;
+  background-color: #822;
+  background-image: linear-gradient(45deg, #a22, #822, #622);
+  box-shadow: 0 0 3rem rgba(0,0,0, .8);
+  margin-bottom: 2rem;
+}
+header h1{
+  font-size: 4rem;
+  color: #fefefe;
+  font-weight: 100;
+  letter-spacing: .1em;
+}
+header .cookie{
+  position: relative;
+  width: 10rem;
+  height:10rem;
+  margin: 2rem auto;
+  background: #c93;
+  border-radius: 50%;
+  box-shadow: .2rem -.2rem 3rem rgba(0,0,0, .3), .2rem -.2rem 2rem rgba(100,50,50, .6) inset;
+}
+header .cookie .cookie-choc{
+  position: absolute;
+  width: 1.5rem;
+  height: 1.5rem;
+  background: #643;
+  border-radius: 50%;
+  box-shadow:.2rem -.2rem .5rem rgba(0,0,0, .6) inset, -.2rem .2rem .5rem rgba(200,200,200, .4) inset;
+}
+header .cookie .cookie-choc.choc1{
+  left: 4rem;
+  top: 1rem;
+}
+header .cookie .cookie-choc.choc2{
+  left: 1rem;
+  top: 3rem;
+}
+header .cookie .cookie-choc.choc3{
+  left: 2.5rem;
+  top: 6.5rem;
+}
+header .cookie .cookie-choc.choc4{
+  left: 5rem;
+  top: 4rem;
+}
+header .cookie .cookie-choc.choc5{
+  left: 6rem;
+  top: 7rem;
+}
+header .cookie .cookie-choc.choc6{
+  left: 7rem;
+  top: 2rem;
+}
+
+section{
+  max-width: 40rem;
+  background: #fefefe;
+  padding: 2rem;
+  margin: 2rem auto;
+  border-radius: .2rem;
+  box-shadow: 0 0 .3rem rgba(100,100,100, .1)
+}
+section h1{
+  font-size: 2.5rem;
+  font-weight: 100;
+}
+section h3{
+  font-size: 1.4rem;
+}
+section p, section h1, section h3{
+  margin: 0 0 .5em;
+}
+
+.btn-group{
+  display: table;
+  width: 100%;
+  border: 1px #567 solid;
+  border-radius: .2rem;
+  margin: 1rem 0;
+}
+.btn-group .btn{
+  display: table-cell;
+  text-align: center;
+  border-right: 1px #567 solid;
+  width: 1%; /*hack for same width cells*/
+  padding: .5rem 0;
+}
+.btn-group .btn:last-of-type{
+  border-right: none;
+}
+.btn-group .btn:hover{
+  cursor: pointer;
+  background: #555;
+  color: #fefefe;
+}

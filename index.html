@@ -3,22 +3,63 @@
 <head>
 	<meta charset="UTF-8">
 	<title>Z-Cookies</title>
+	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+	<link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
 
-	<h1>Z-Cookies</h1>
+	<header>
+		<h1>Z-Cookies</h1>
+		<div class="cookie">
+			<span class="cookie-choc choc1"></span>
+			<span class="cookie-choc choc2"></span>
+			<span class="cookie-choc choc3"></span>
+			<span class="cookie-choc choc4"></span>
+			<span class="cookie-choc choc5"></span>
+			<span class="cookie-choc choc6"></span>
+		</div>
+	</header>
 
-	<hr>
+	<section>
+		<h1>
+			Z-Cookies
+		</h1>
+		<h3>
+			The Cookies made easy!
+		</h3>
+		<p>
+			This is a little javascript module that will help <b>setting</b>, <b>getting</b> and <b>deleting</b> cookies easily.
+		</p>
+		<p>
+			It does not require any third party library because it has been written in full vanillajs.
+		</p>
+	</section>
 
-	<button onClick="set1()">Set Cookie 1</button>
-	<button onClick="set2()">Set Cookie 2</button>
-	<button onClick="getAll()">Get all Cookies</button>
-	<button onClick="get1()">Get the Cookie 1</button>
-	<button onClick="get2()">Get the Cookie 2</button>
-	<button onClick="delete1()">Delete the Cookie 1</button>
-	<button onClick="delete2()">Delete the Cookie 2</button>
+	<section>
+		<h1>Demo</h1>
 
-	<script src="js/app.js"></script>
+		<h3>Set cookies</h3>
+		<div class="btn-group">
+			<div class="btn" onClick="set1()">Set Cookie 1</div>
+			<div class="btn" onClick="set2()">Set Cookie 2</div>
+		</div>
+
+		<h3>Get cookies</h3>
+		<div class="btn-group">
+			<div class="btn" onClick="getAll()">Get all Cookies</div>
+			<div class="btn" onClick="get1()">Get the Cookie 1</div>
+			<div class="btn" onClick="get2()">Get the Cookie 2</div>
+		</div>
+
+		<h3>Delete Cookies</h3>
+		<div class="btn-group">
+			<div class="btn" onClick="delete1()">Delete the Cookie 1</div>
+			<div class="btn" onClick="delete2()">Delete the Cookie 2</div>
+		</div>
+
+	</section>
+
+	<script src="js/z-cookies.js"></script>
 
 	<script>
 

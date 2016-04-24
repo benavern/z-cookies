@@ -74,12 +74,12 @@ ZCookies.set("Chaining", "Is").set("A", "realy").set("Awesome", "Feature").delet
 ## Todo
 
 * The module
-  * Get
-  * Set
-  * Delete
+  [x] Get
+  [x] Set
+  [x] Delete
 * Documentation
-  * Content
-  * Design
+  [x] Content
+  [x] Design
 
 ## Contribute
 
