@@ -17,8 +17,9 @@ var ZCookies  = (function(){
 
 			rawCookies.forEach(function(rawCookie) {
 				if(rawCookie != ""){
-					var splittedRawCookie = rawCookie.split('=', 2);
-					objCookies[splittedRawCookie[0].trim()] = splittedRawCookie[1].trim();
+					var rawCookieName = rawCookie.split('=')[0].trim(); // get the name of the cookie
+					var rawCookieValue = rawCookie.split('=').slice(1).join('=').trim(); // get the value of the coolie (can contain "=" now)
+					objCookies[rawCookieName] = rawCookieValue;
 				}
 			})
 
