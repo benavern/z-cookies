@@ -22,6 +22,12 @@ With this method, you will be able to get the browser cookies data:
 var myCookie = ZCookies.get("numberOne"); // myCookie = "foo"
 ```
 
+#### Get multiple cookies
+
+```javascript
+var myCookies = ZCookies.get("numberOne", "numberTwo"); //  myCookies = {"numberOne": "foo", "numberTwo" : "bar"}
+```
+
 #### Get all the cookies as an object
 
 ```javascript
@@ -77,7 +83,7 @@ ZCookies.set("Chaining", "Is").set("A", "realy").set("Awesome", "Feature").delet
 
 ## Contribute
 
-This is an Open-Source project created by ZenZen & Pacejz.
+This is an Open-Source project created by ZeZen & Pacejz.
 
 You can contribute, fork, pull request, issue, etc... We will try to answere to each of you :)
 

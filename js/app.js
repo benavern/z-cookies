@@ -1,50 +1,94 @@
-
+/**
+ * Module to easily set / get / delete / check cookies.
+ */
 var ZCookies  = (function(){
 
-	var _cookie = document.cookie;
-	var _objCookie = {};
-	var _public = {
-		getRaw: getRawCk,
-		get: getCk,
-		set: setCk,
-		delete: deleteCk
+	// private methods
+
+	var priv = {
+
+		// parse the existing cookies into an object
+		_parseCookies : function(){
+
+			var rawCookies = document.cookie.split(';');
+			var objCookies = {};
+
+			rawCookies.forEach(function(rawCookie) {
+				if(rawCookie != ""){
+					var splittedRawCookie = rawCookie.split('=', 2);
+					objCookies[splittedRawCookie[0].trim()] = splittedRawCookie[1].trim();
+				}
+			})
+
+			return objCookies;
+
+		},
+
 	}
 
-	// convert the object into the cookie (to call when seting and deleting data)
-	function _convertObjtoCookie(){
 
-		_cookie = JSON.stringify(_objCookie);
-	};
 
-	// get raw cookie
-	function getRawCk(){
-		return _cookie;
-	};
 
-	// get attribute cookie by key (all the object if there is no key)
-	function getCk(_key){
-		if(_key) {
-			return _objCookie[_key];
-		} else {
-			return _objCookie;
+	// public methods
+
+	var pub = {
+
+		// get one or multiple specific cookie(s), or the entire object.
+		get : function() {
+
+			var cookies = priv._parseCookies();
+
+			if(!!arguments.length){
+				// if only one required
+				if(arguments.length == 1) return cookies[arguments[0]];
+
+				// else if arguments > 1
+				var out = {};
+				[].forEach.call(arguments, function(name) { // ignores the cookies that do not exist
+					if(cookies[name] != undefined) out[name] = cookies[name];
+				})
+				return out;
+
+			}
+			else { // if no argument, return all cookies
+				return cookies;
+			}
+
+		},
+
+		// set a cookie, name and value are required, expiration date is facultative
+		set : function(cname, cval, exdays) {
+
+			var theCookie = "";
+			//add the name and value
+			if(cname && cval)
+				theCookie += cname + "=" + cval + ";";
+
+			//if needed, add a expiration date
+			if(exdays != undefined) {
+				var d = new Date();
+		    d.setTime(d.getTime() + (exdays*24*60*60*1000));
+		    theCookie += "expires="+d.toUTCString();
+			}
+
+			// create the cookie
+			if(theCookie != "") document.cookie = theCookie;
+			return pub; // for method chaining
+
+		},
+
+		// delete
+		delete(cname) {
+
+			if(cname != undefined) pub.set(cname, "expired", 0);
+			return pub; // for method chaining
+
 		}
 
-	};
-
-	// set cookie data by key 
-	function setCk(_key, _dat){
-		_objCookie[_key] = _dat;
-		_convertObjtoCookie();
-		return _public 
-	};
-
-	// delete cokkie by key
-	function deleteCk(_key){
-		_objCookie[_key] = _dat;
-		_convertObjtoCookie();
-		return _public;
 	}
 
-	return  _public;
+
+	// expose public stuff
+	return  pub;
 
 })();
