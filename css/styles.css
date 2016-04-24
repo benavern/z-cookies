@@ -17,17 +17,17 @@ body{
 
 header{
   text-align: center;
-  padding: 8rem 0;
+  padding: 6rem 0;
   background-color: #822;
-  background-image: linear-gradient(45deg, #a22, #822, #622);
+  background-image: linear-gradient(45deg, #c22, #a22, #822);
   box-shadow: 0 0 3rem rgba(0,0,0, .8);
   margin-bottom: 2rem;
 }
 header h1{
-  font-size: 4rem;
+  font-size: 5rem;
   color: #fefefe;
+  font-variant: small-caps;
   font-weight: 100;
-  letter-spacing: .1em;
 }
 header .cookie{
   position: relative;
@@ -72,12 +72,13 @@ header .cookie .cookie-choc.choc6{
 }
 
 section{
-  max-width: 40rem;
+  width: 100%;
+  max-width: 720px;
   background: #fefefe;
   padding: 2rem;
   margin: 2rem auto;
   border-radius: .2rem;
-  box-shadow: 0 0 .3rem rgba(100,100,100, .1)
+  box-shadow: 0 0 .3rem rgba(100,100,100, .1);
 }
 section h1{
   font-size: 2.5rem;
@@ -86,23 +87,36 @@ section h1{
 section h3{
   font-size: 1.4rem;
 }
-section p, section h1, section h3{
+section small{
+  font-size: .8rem;
+  font-style: italic;
+  opacity: .5;
+  display: block;
+}
+section p, section h1, section h3, section small{
   margin: 0 0 .5em;
+}
+section pre[class*=language-]{
+  margin: 1rem -2rem;
+  border-radius: 0;
+  padding: 2rem;
 }
 
 .btn-group{
   display: table;
   width: 100%;
-  border: 1px #567 solid;
+  border: 1px #555 solid;
   border-radius: .2rem;
   margin: 1rem 0;
 }
 .btn-group .btn{
   display: table-cell;
   text-align: center;
-  border-right: 1px #567 solid;
+  border-right: 1px #555 solid;
   width: 1%; /*hack for same width cells*/
   padding: .5rem 0;
+  color: #555;
+  text-decoration: none;
 }
 .btn-group .btn:last-of-type{
   border-right: none;
@@ -111,4 +125,56 @@ section p, section h1, section h3{
   cursor: pointer;
   background: #555;
   color: #fefefe;
+}
+
+footer{
+  padding: 6rem 0;
+  background: #555;
+  color: #fefefe;
+  text-align: center;
+}
+footer i{
+  font-style: normal;
+  font-weight:bold;
+  color: pink;
+  font-size: 1.2em;
+}
+footer a{
+  color: inherit;
+  opacity: .8;
+  text-decoration: none;
+}
+
+@media (max-width:720px) {
+  html{
+    font-size: 14px;
+  }
+  header{
+    margin-bottom: 1rem;
+  }
+  section{
+    padding: 1rem;
+    margin: 1rem .5rem;
+    width: auto;
+  }
+  section pre[class*=language-]{
+    margin: 1rem -1rem;
+    padding: 2rem 1rem;
+    font-size: .7rem;
+  }
+
+  .btn-group{
+    display: block;
+    width: 100%;
+  }
+  .btn-group .btn{
+    display: block;
+    border: none;
+    border-bottom: 1px #555 solid;
+    width: 100%;
+  }
+  .btn-group .btn:last-of-type{
+    border-bottom: none;
+  }
+
 }

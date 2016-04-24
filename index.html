@@ -5,11 +5,12 @@
 	<title>Z-Cookies</title>
 	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
 	<link rel="stylesheet" href="css/styles.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.4.1/themes/prism-okaidia.min.css">
 </head>
 <body>
 
 	<header>
-		<h1>Z-Cookies</h1>
+		<h1>z-cookies</h1>
 		<div class="cookie">
 			<span class="cookie-choc choc1"></span>
 			<span class="cookie-choc choc2"></span>
@@ -25,14 +26,117 @@
 			Z-Cookies
 		</h1>
 		<h3>
-			The Cookies made easy!
+			 Cookies made easy!
 		</h3>
 		<p>
-			This is a little javascript module that will help <b>setting</b>, <b>getting</b> and <b>deleting</b> cookies easily.
+			Nowadays, a lot of websites are using cookies. They <b>set</b>, <b>get</b> or <b>delete</b> their cookies sometimes with an heavy jQuery plugin, or sometimes with some noobie home-made scripts...
 		</p>
 		<p>
-			It does not require any third party library because it has been written in full vanillajs.
+			Here is our solution: A really lightweight vanilla JS Module to handle your cookies.
 		</p>
+		<p>
+			It is called Z-cookies, and here is how it works :
+		</p>
+		<small>
+			This is a module design pattern. When added to your application, nothing more than calling its methodes is required
+		</small>
+	</section>
+
+	<section>
+		<h1>
+			Get Method
+		</h1>
+		<p>
+			With this method, you will be able to get the browser cookies data:
+		</p>
+		<h3>
+			Get a specific cookie
+		</h3>
+		<pre><code class="language-javascript">var myCookie = ZCookies.get("numberOne");
+// myCookie = "foo"</code></pre>
+
+		<h3>
+			Get multiple cookies
+		</h3>
+
+		<pre><code class="language-javascript">var myCookies = ZCookies.get("numberOne", "numberTwo");
+//  myCookies = {"numberOne": "foo", "numberTwo" : "bar"}</code></pre>
+
+		<h3>
+			Get all the cookies as an object
+		</h3>
+		<pre><code class="language-javascript">var myCookies = ZCookies.get();
+// myCookies = {"numberOne": "foo", "numberTwo" : "bar"}</code></pre>
+
+	</section>
+
+	<section>
+		<h1>
+			Set / Update
+		</h1>
+
+		<p>
+			Here if the cookie already exists, it will be updated, otherwise it is created.
+		</p>
+		<pre><code class="language-javascript">ZCookies.set("numberThree", "Hello, World!");</code></pre>
+
+		<h3>
+			Expiration date
+		</h3>
+
+		<p>
+			Instead of providing some ununderstandable timestamps, we chose an easyer solution : providing a number of days of validity.
+		</p>
+
+		<p>
+			It will be automatically converted so that the browser understands well what you meant.
+		</p>
+
+		<p>
+			For example for a cookie that is meant to exist only for three days :
+		</p>
+
+		<pre><code class="language-javascript">ZCookies.set("numberFour", "Where is bryan?", 3);</code></pre>
+
+	</section>
+
+
+	<section>
+
+		<h1>
+			Delete
+		</h1>
+
+		<p>
+			To delete a cookie, you just have to provide its name:
+		</p>
+
+		<pre><code class="language-javascript">ZCookies.delete("numberThree");
+// now numberThree cookie does not exist anymore.</code></pre>
+
+	</section>
+
+	<section>
+
+		<h1>
+			BONUS
+		</h1>
+
+		<p>
+			You can chain ZCookies <b>set</b> and <b>delete</b> methodes.
+		</p>
+
+		<p>
+			The <b>get</b> method can be added at the end of the chain, it is meant to return a <b>value</b>.
+		</p>
+
+		<pre><code class="language-javascript">ZCookies.set("Chaining", "Is")
+	.set("A", "realy")
+	.set("Awesome", "Feature")
+	.delete("A")
+	.get();
+// {"Chaining": "Is", "Awesome": "Feature"}</code></pre>
+
 	</section>
 
 	<section>
@@ -59,7 +163,36 @@
 
 	</section>
 
-	<script src="js/z-cookies.js"></script>
+	<section>
+		<h1>
+			Download
+		</h1>
+		<div class="btn-group">
+			<a href="js/z-cookies.js" download class="btn">z-cookies.js (3ko)</a>
+			<a href="js/z-cookies.min.js" download class="btn">z-cookies.min.js (1ko)</a>
+		</div>
+	</section>
+
+	<footer>
+		<p>
+			Made with <i>&lt;/&gt;</i> by
+		</p>
+		<p>
+			<a href="http://caradeuc.info">
+				Benjamin Caradeuc
+			</a>
+		</p>
+		<p>
+			&amp;
+		</p>
+		<p>
+			<a href="http://github.com/pacejz">
+				Jean Sebastien Pelerin
+			</a>
+		</p>
+	</footer>
+
+	<script src="js/z-cookies.min.js"></script>
 
 	<script>
 
@@ -86,5 +219,8 @@
 		}
 
 	</script>
+
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.4.1/prism.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.4.1/components/prism-javascript.min.js"></script>
 </body>
 </html>
