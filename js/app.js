@@ -1,5 +1,7 @@
 /**
  * Module to easily set / get / delete / check cookies.
+ * by Benjamin Caradeuc {http://caradeuc.info}
+ * &  Jean sebastien pelerin
  */
 var ZCookies  = (function(){
 
@@ -25,8 +27,6 @@ var ZCookies  = (function(){
 		},
 
 	}
-
-
 
 
 	// public methods
