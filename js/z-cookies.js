@@ -21,7 +21,7 @@ var ZCookies  = (function(){
 					var rawCookieValue = rawCookie.split('=').slice(1).join('=').trim(); // get the value of the coolie (can contain "=" now)
 					objCookies[rawCookieName] = rawCookieValue;
 				}
-			})
+			});
 
 			return objCookies;
 
@@ -58,18 +58,22 @@ var ZCookies  = (function(){
 		},
 
 		// set a cookie, name and value are required, expiration date is facultative
-		set : function(cname, cval, exdays) {
+		// exdate : {days:foo, hours:bar, mins:foobar}
+		set : function(cname, cval, exdate) {
 
 			var theCookie = "";
 			//add the name and value
 			if(cname && cval)
 				theCookie += cname + "=" + cval + ";";
 
-			//if needed, add a expiration date (based on the number of days passed in the function)
-			if(exdays != undefined) {
+			//if needed, add a expiration date (based on days, mins and hours)
+			if(exdate && typeof exdate.days == 'number' || typeof exdate.hours == 'number' || typeof exdate.mins == 'number') {
 				var d = new Date();
-		    d.setTime( d.getTime() + (exdays * 24 * 60 * 60 * 1000) );
-		    theCookie += "expires=" + d.toUTCString();
+				var daysTime = (typeof exdate.days == 'number'? exdate.days : 0) * 24 * 60 * 60 * 1000;
+				var hoursTime = (typeof exdate.hours == 'number'? exdate.hours : 0) * 60 * 60 * 1000;
+				var minsTime = (typeof exdate.mins == 'number'? exdate.mins : 0) * 60 * 1000;
+			    d.setTime( d.getTime() + daysTime + hoursTime + minsTime);
+			    theCookie += "expires=" + d.toUTCString();
 			}
 
 			// create the cookie

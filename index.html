@@ -192,7 +192,7 @@
 		</p>
 	</footer>
 
-	<script src="js/z-cookies.min.js"></script>
+	<script src="js/z-cookies.js"></script>
 
 	<script>
 
@@ -200,7 +200,7 @@
 			ZCookies.set("cookie1", "I am the first cookie");
 		}
 		function set2(){
-			ZCookies.set("cookie2", "I am the second cookie");
+			ZCookies.set("cookie2", "I am the second cookie",{days:1,hours:3,mins:30});
 		}
 		function getAll(){
 			alert(JSON.stringify(ZCookies.get(), false, "  "));
