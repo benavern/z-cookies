@@ -67,12 +67,13 @@ var ZCookies  = (function(){
 				theCookie += cname + "=" + cval + ";";
 
 			//if needed, add a expiration date (based on days, mins and hours)
-			if(exdate && typeof exdate.days == 'number' || typeof exdate.hours == 'number' || typeof exdate.mins == 'number') {
+			if(exdate && (typeof exdate == 'number' || typeof exdate.days == 'number' || typeof exdate.hours == 'number' || typeof exdate.mins == 'number')) {
 				var d = new Date();
 				var daysTime = (typeof exdate.days == 'number'? exdate.days : 0) * 24 * 60 * 60 * 1000;
 				var hoursTime = (typeof exdate.hours == 'number'? exdate.hours : 0) * 60 * 60 * 1000;
 				var minsTime = (typeof exdate.mins == 'number'? exdate.mins : 0) * 60 * 1000;
-			    d.setTime( d.getTime() + daysTime + hoursTime + minsTime);
+				var addTime = typeof exdate == 'number'? exdate * 24 * 60 * 60 * 1000 : daysTime + hoursTime + minsTime;
+			    d.setTime(d.getTime() + addTime);
 			    theCookie += "expires=" + d.toUTCString();
 			}
 
