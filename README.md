@@ -46,7 +46,7 @@ ZCookies.set("numberThree", "Hello, World!");
 
 #### Expiration date
 
-Instead of providing some ununderstandable timestamps, we chose an easyer solution : providing a number of days of validity.
+Instead of providing some ununderstandable timestamps, we chose an easyer solution : providing a simple json with the days, mins and/or hours set 
 
 It will be automatically converted so that the browser understands well what you meant.
 
@@ -54,7 +54,9 @@ For example for a cookie that is meant to exist only for three days :
 
 
 ```javascript
-ZCookies.set("numberFour", "Where is bryan?", 3);
+ZCookies.set("numberFour", "Where is bryan?", {days: 1, hours: 12, mins: 30});
+//Or you can just set the usefull values
+ZCookies.set("numberFive", "Where is bryan?", {days: 1, mins: 30});
 ```
 
 ### Delete

@@ -85,7 +85,7 @@
 		</h3>
 
 		<p>
-			Instead of providing some ununderstandable timestamps, we chose an easyer solution : providing a number of days of validity.
+			Instead of providing some ununderstandable timestamps, we chose an easyer solution : providing a simple json with the days, mins and/or hours set 
 		</p>
 
 		<p>
@@ -96,7 +96,9 @@
 			For example for a cookie that is meant to exist only for three days :
 		</p>
 
-		<pre><code class="language-javascript">ZCookies.set("numberFour", "Where is bryan?", 3);</code></pre>
+		<pre><code class="language-javascript">ZCookies.set("numberFour", "Where is bryan?", {days: 1, hours: 12, mins: 30});
+//Or you can just set the usefull values
+ZCookies.set("numberFive", "Where is bryan?", {days: 1, mins: 30});</code></pre>
 
 	</section>
 
@@ -192,7 +194,7 @@
 		</p>
 	</footer>
 
-	<script src="js/z-cookies.js"></script>
+	<script src="js/z-cookies.min.js"></script>
 
 	<script>
 
