@@ -94,6 +94,8 @@ To start the server, simply type
 npm run dev
 ```
 
+**Warning!**  The minified version of the js is not generated automatically, you'll have to use some other tools to do that...
+
 ## License
 
 [MIT](http://benavern.github.io/MIT/#name=Benjamin%20%26%20Jean-Sebastien)
