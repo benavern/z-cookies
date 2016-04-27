@@ -50,9 +50,6 @@ Instead of providing some ununderstandable timestamps, we chose an easyer soluti
 
 It will be automatically converted so that the browser understands well what you meant.
 
-For example for a cookie that is meant to exist only for three days :
-
-
 ```javascript
 ZCookies.set("numberFour", "Where is bryan?", {days: 1, hours: 12, mins: 30});
 //Or you can just set the usefull values
@@ -76,21 +73,26 @@ The `get` method can be added at the end of the chain, it is meant to return a `
 ZCookies.set("Chaining", "Is").set("A", "realy").set("Awesome", "Feature").delete("A").get(); // {"Chaining": "Is", "Awesome": "Feature"}
 ```
 
-## Todo
-
-* The module
-  [x] Get
-  [x] Set
-  [x] Delete
-* Documentation
-  [x] Content
-  [x] Design
-
 ## Contribute
 
 This is an Open-Source project created by ZeZen & Pacejz.
 
 You can contribute, fork, pull request, issue, etc... We will try to answere to each of you :)
+
+### dev server (facultative)
+
+There is a simple configuration file that is meant to be used with [lite-server](https://github.com/johnpapa/lite-server)
+
+```bash
+npm i
+```
+With this server, you'll be able to watch changes on the files and refresh your browser automatically. If you open the given url on multiple devices, it will be synchronised too.
+
+To start the server, simply type
+
+```bash
+npm run dev
+```
 
 ## License
 

@@ -1,0 +1,26 @@
+{
+  "name": "z-cookies",
+  "version": "1.0.0",
+  "description": "Your cookies made easy",
+  "main": "js/z-cookies.js",
+  "scripts": {
+    "dev": "lite-server"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/benavern/z-cookies.git"
+  },
+  "keywords": [
+    "cookies",
+    "javascript"
+  ],
+  "author": "benjamin caradeuc & jean sebastien pellerin",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/benavern/z-cookies/issues"
+  },
+  "homepage": "https://github.com/benavern/z-cookies#readme",
+  "devDependencies": {
+    "lite-server": "^2.2.0"
+  }
+}
