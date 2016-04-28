@@ -1,4 +1,4 @@
-![Banner](/banner.png)
+![Banner](http://labo.caradeuc.info/z-cookies/banner.png)
 
 # Z-Cookies
 
@@ -7,6 +7,8 @@
 Nowadays, a lot of websites are using cookies. They set, get or delete their cookies sometimes with an heavy jQuery plugin, or sometimes with some noobie home made scripts...
 
 Here is our solution: A really lightweight vanilla JS Module to handle your cookies.
+
+[_And it is now available on npm!!_](https://www.npmjs.com/package/z-cookies)
 
 It is called Z-cookies, and here is how it works :
 

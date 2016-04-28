@@ -135,7 +135,7 @@ section pre[class*=language-]{
   text-align: center;
   border-right: 1px #555 solid;
   width: 1%; /*hack for same width cells*/
-  padding: .5rem 0;
+  padding: .4rem;
   color: #555;
   text-decoration: none;
   transition: .3s color, .3s background;
