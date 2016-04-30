@@ -2,6 +2,8 @@
 
 # Z-Cookies
 
+[![npm version](https://badge.fury.io/js/z-cookies.svg)](https://badge.fury.io/js/z-cookies)
+
 ## What's that ??
 
 Nowadays, a lot of websites are using cookies. They set, get or delete their cookies sometimes with an heavy jQuery plugin, or sometimes with some noobie home made scripts...
