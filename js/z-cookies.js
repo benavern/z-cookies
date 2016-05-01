@@ -11,19 +11,48 @@ var ZCookies  = (function(){
 
 		// parse the existing cookies into an object
 		_parseCookies : function(){
-
 			var rawCookies = document.cookie.split(';');
 			var objCookies = {};
 
 			rawCookies.forEach(function(rawCookie) {
+
 				if(rawCookie != ""){
 					var rawCookieName = rawCookie.split('=')[0].trim(); // get the name of the cookie
 					var rawCookieValue = rawCookie.split('=').slice(1).join('=').trim(); // get the value of the coolie (can contain "=" now)
 					objCookies[rawCookieName] = rawCookieValue;
+
 				}
+
 			});
 
 			return objCookies;
+
+		},
+
+		_processExpirationDate : function (exdate) {
+			var d = new Date(),
+					dateTipe = typeof exdate,
+					daysTime = 0,	hoursTime = 0, minsTime = 0,
+					addTime;
+
+			if(dateTipe == 'number' || dateTipe == 'object'){
+
+				if(dateTipe == 'number'){
+					daysTime = exdate * 24 * 60 * 60 * 1000;
+
+				}
+
+				else if(dateTipe == 'object'){
+					daysTime = exdate.days * 24 * 60 * 60 * 1000;
+					hoursTime = exdate.hours * 60 * 60 * 1000;
+					minsTime = exdate.mins * 60 * 1000;
+
+				}
+
+				d.setTime(d.getTime() + daysTime + hoursTime + minsTime);
+				return "expires=" + d.toUTCString();
+
+			}
 
 		},
 
@@ -36,7 +65,6 @@ var ZCookies  = (function(){
 
 		// get one or multiple specific cookie(s), or the entire object.
 		get : function() {
-
 			var cookies = priv._parseCookies();
 
 			if(!!arguments.length){
@@ -60,39 +88,31 @@ var ZCookies  = (function(){
 		// set a cookie, name and value are required, expiration date is facultative
 		// exdate : {days:foo, hours:bar, mins:foobar}
 		set : function(cname, cval, exdate) {
-
 			var theCookie = "";
 			//add the name and value
 			if(cname && cval)
 				theCookie += cname + "=" + cval + ";";
 
 			//if needed, add a expiration date (based on days, mins and hours)
-			if(exdate && (typeof exdate == 'number' || typeof exdate.days == 'number' || typeof exdate.hours == 'number' || typeof exdate.mins == 'number')) {
-				var d = new Date();
-				var daysTime = (typeof exdate.days == 'number'? exdate.days : 0) * 24 * 60 * 60 * 1000;
-				var hoursTime = (typeof exdate.hours == 'number'? exdate.hours : 0) * 60 * 60 * 1000;
-				var minsTime = (typeof exdate.mins == 'number'? exdate.mins : 0) * 60 * 1000;
-				var addTime = typeof exdate == 'number'? exdate * 24 * 60 * 60 * 1000 : daysTime + hoursTime + minsTime;
-			    d.setTime(d.getTime() + addTime);
-			    theCookie += "expires=" + d.toUTCString();
-			}
+			if(exdate != undefined)
+				theCookie += priv._processExpirationDate(exdate);
 
 			// create the cookie
-			if(theCookie != "") document.cookie = theCookie;
+			if(theCookie != "")
+				document.cookie = theCookie;
+
 			return pub; // for method chaining
 
 		},
 
 		// delete a specific cookie based on its name
 		delete : function(cname) {
-
 			if(cname != undefined) pub.set(cname, "expired", 0); // 0 is considered in the past once setted
 			return pub; // for method chaining
 
 		},
 
 	};
-
 
 	// expose public stuff
 	return  pub;
