@@ -118,3 +118,5 @@ var ZCookies  = (function(){
 	return  pub;
 
 })();
+
+(typeof module !== "undefined" && module !== null ? module : {}).exports = ZCookies;
